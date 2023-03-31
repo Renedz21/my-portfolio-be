@@ -10,6 +10,9 @@ const projectsSchema = mongoose.Schema({
     image: {
         type: String,
     },
+    tags: {
+        type: [String],
+    },
     githubUrl: {
         type: String,
     },

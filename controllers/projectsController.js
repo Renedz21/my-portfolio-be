@@ -36,3 +36,17 @@ export const createProject = async (req, res, next) => {
     }
 
 }
+
+export const updateProject = async (req, res, next) => {
+
+    const { id } = req.params;
+
+    try {
+        const newProject = await Project.findByIdAndUpdate(id, { ...req.body }, { new: true });
+        res.status(200).json({ message: "Project updated", newProject });
+
+    } catch (error) {
+        next(createError(500, "Something went wrong"));
+    }
+
+}
